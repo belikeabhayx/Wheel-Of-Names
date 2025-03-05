@@ -67,3 +67,99 @@ body {
 .read-the-docs {
   color: #888;
 }
+
+@keyframes spin-wheel {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(calc(var(--spin-degree) * 0.1));
+  }
+  30% {
+    transform: rotate(calc(var(--spin-degree) * 0.3));
+  }
+  50% {
+    transform: rotate(calc(var(--spin-degree) * 0.5));
+  }
+  70% {
+    transform: rotate(calc(var(--spin-degree) * 0.7));
+  }
+  90% {
+    transform: rotate(calc(var(--spin-degree) * 0.9));
+  }
+  100% {
+    transform: rotate(var(--spin-degree));
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ping-small {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.animate-ping-small {
+  animation: ping-small 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out forwards;
+}
+
+.animate-spin-wheel {
+  animation: spin-wheel 5s cubic-bezier(0.17, 0.67, 0.12, 0.99) forwards;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
